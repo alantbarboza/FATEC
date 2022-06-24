@@ -10,7 +10,7 @@ Exemplos: dadas as matrizes abaixo, seus retornos são indicados.
 2| 0 0 0 0
 3| 0 1 0 0
      
-     0 1 2 3        Retorno:
+   0 1 2 3          Retorno:
  -----------
 0| 0 0 0 0
 1| 0 0 0 0            => 2
@@ -35,7 +35,7 @@ int main(){
     for(int linha = 0; linha < 4; linha++){
         for(int coluna = 0; coluna < 4; coluna++){
             
-            if (matriz[linha][coluna] == 1 )
+            if (matriz[linha][coluna] == 1)
                 contador += 1;
                
             if (linha == 0 && coluna == 0){
