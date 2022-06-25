@@ -41,7 +41,7 @@ int main(){
             if (linha == 0 && coluna == 0){
                 maior = contador;
                 guardaX = linha;
-            }else if (maior < contador && maior != contador){
+            }else if (maior < contador){
                 maior = contador;
                 guardaX = linha;
             }
