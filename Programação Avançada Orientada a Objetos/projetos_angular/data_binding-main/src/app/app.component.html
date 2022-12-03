@@ -1,0 +1,105 @@
+<!-- .container.my-3.border.p-3 -->
+<div class="container my-3 border p-3">
+  <!-- .form-group>label[for=numeroInput]{Escolha um número} -->
+  <div class="form-group">
+    <label for="numeroInput">Escolha um número</label>
+    <!-- input[type="number"].form-control#numeroInput[placeholder="Escolha um número"] -->
+    <input
+      [(ngModel)]="numero" 
+      type="number" 
+      class="form-control" 
+      id="numeroInput" 
+      placeholder="Escolha um número">
+  </div>
+  <!-- alert.alert-success.mt-3.p-3.text-center -->
+  <div 
+    class="alert alert-success mt-3 p-3 text-center">
+    {{numero}}
+  </div>
+  <!-- button[type=button].btn.btn-primary.w-100{Escolher para mim} -->
+  <button 
+    type="button" 
+    class="btn btn-primary w-100"
+    (click)="escolher()">
+    Escolher para mim
+  </button>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- .container.mt-3.border.p-3
+<div class="container mt-3 border p-3">
+  button[type=button].btn.btn-primary{Adicionar}
+  .form-group>label[for=nomeInput]{Nome}
+  <div class="form-group">
+    <label for="nomeInput">Nome</label>
+    input[type=text].form-control#nomeInput[placeholder="Digite seu nome"]
+    <input 
+      type="text"
+      class="form-control" 
+      id="nomeInput" 
+      placeholder="Digite seu nome"
+      #nomeInput>
+  </div>
+  <button 
+    type="button" 
+    class="btn btn-primary w-100 mt-3"
+    (click)="adicionar(nomeInput)">
+      Adicionar
+  </button>
+  .alert.alert-primary.mt-3.p-3
+  <div 
+    class="alert alert-primary mt-3 p-3"
+    [hidden]="esconderCaixa">
+    {{nome}}
+  </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- data binding -->
+<!-- interpolação -->
+<!-- 2 + 2 = {{2 + 2}} -->
+<!-- Meu nome é {{nome}} e tenho {{idade}} anos.
+
+<p>Resultado: {{lancarDado()}}</p> -->
