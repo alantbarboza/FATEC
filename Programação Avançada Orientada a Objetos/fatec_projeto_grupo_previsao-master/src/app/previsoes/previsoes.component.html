@@ -1,0 +1,72 @@
+<div class="grid justify-content-center mt-5 mx-5">
+  <h2>Previsão do Tempo</h2>
+</div>
+
+<div id="abas" class="card">
+  <p-tabView>
+      <p-tabPanel header="Pesquisar">
+          <form #meuForm="ngForm">
+              <div class="p-inputgroup">
+                  <!-- span.p-inputgroup-addon -->
+                  <span class="p-inputgroup-addon">
+                      <!-- i.pi.pi-user -->
+                      <i class="pi pi-search"></i>
+                  </span>
+                  <input ngModel type="text" pInputText placeholder="Digite a cidade" class="w-full block text-center"
+                      name="nome" [(ngModel)]="cidade">
+                  <button class="p-button-sprimary" pButton label="OK" (click)="pesquisar()"></button>
+              </div>
+          </form>
+          <!-- 
+            Diretiva ngIF, essas diretiva verifica se essa propriedade existe, caso exista essa parte sera exibida
+            senão permanece oculta
+          -->
+          <p-table id="abas" *ngIf="minha_previsao">
+            <ng-template pTemplate="header">
+            <tr>
+                <th>
+                    <div>
+                        <h1>{{minha_previsao.name_city}}</h1>
+                        <hr>
+                        <img src="{{minha_previsao.icon}}" alt="agora">
+                        <p>Data :<span>{{minha_previsao.data_previsao | date:'dd/MM/yyyy'}}</span><br></p>
+                        <p>
+                            <strong>Temperatura</strong>:{{minha_previsao.temp}}ºC | <strong>Min:</strong>{{minha_previsao.minTemp}}ºC -
+                            <strong>Max:</strong>{{minha_previsao.maxTemp}}ºC
+                        </p>
+                    </div>
+                </th>
+            </tr>
+            <button type="button" class="p-button-info" pButton (click)="adicionar()" class="w-full block text-center">#Adicionar</button>
+            </ng-template>
+          </p-table>
+      </p-tabPanel>
+        <p-tabPanel header="Histórico">
+          Puxando histórico
+          <!-- 
+            Diretiva ngIF, essas diretiva verifica se essa propriedade existe, caso exista essa parte sera exibida
+            senão permanece oculta
+          -->
+            <p-table *ngIf="historico_previsoes">
+              <ng-template pTemplate="header" let-cidade>
+                <!-- 
+                  Como o nosso historico_previsoes é uma lista/array de objetos,
+                  usamos a diretiva ngFor para percorrer cada linha e exibir as propriedade do objeto contido na linha
+                -->
+                  <tr *ngFor="let prev of historico_previsoes">     
+                      <th>{{prev.cidade}}</th>     
+                      <th>{{prev.data_previsao  | date:'dd/MM/yyyy'}}</th>     
+                      <th><a href="{{prev.link_previsao}}" target="_blank">previsão</a></th>     
+                  </tr>
+                  
+              </ng-template>
+            </p-table>
+            <button class="w-full block text-center" pButton label="# Atualizar" (click)="atualizar()"></button>
+          </p-tabPanel>
+  </p-tabView>
+</div> <br><br>
+
+
+
+
+
