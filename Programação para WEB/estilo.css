@@ -1,0 +1,123 @@
+/*
+Ordem de seletor na sobreposição:
+Existem 3 tipos de seletores:
+CLASSE
+ID
+TAG
+*/
+
+* {  /*seletor universal. Esse seletor representa todos os elementos serão afetados pelas definições de estilo ali colocadas.*/
+    box-sizing: border-box; 
+}
+
+/*Seletor por TAG*/
+body {
+    background-color: gray;  /*cor do fundo*/
+    color: white;   /*cor das letras*/
+    font-family: arial !important; /*fonte das letras*/  /*!important: faz com que NENHUMA outra alteração no CSS mude o valor desse atributo*/
+}
+input, select, textarea {  /*separe por VIRGULA quando for tags diferentes*/
+    background-color: yellow; 
+    color: black;
+    border: solid 1px white; /*cor da borda do campos input , select e textarea*/
+    margin: 5px; /*espaçamento ao externo/parte de fora do elemento*/
+    font-weight: 800;  /*negrito*/
+}
+h1 {
+    color: purple;
+    border-bottom: dotted 4px purple; /*cria uma borda apenas na parte de baixo*/
+}
+
+/*Seletor por ID.   #nome_do_objeto*/
+#btn{
+    background-color: purple;
+    color: white;
+    width: 100px;  /*tamanho: largura*/
+    height: 50px;  /*tamanho: altura*/
+    border: white solid 1px;
+    border-radius: 5px; /*borda arredondada*/
+}
+
+/*Seletor por CLASSE.   .nome_do_objeto*/
+.janela{
+    background-color: black; 
+    width: 50%; /*tamanho/largura: 50% da tela*/
+    margin-left: 25%;
+    border: solid white 2px;
+    padding: 10px; /*espaçamento interno/dentro do elemento*/
+    height: 200px;
+}
+
+/*css em cascata*/
+#corpo {
+    background-color: red;
+    width: 80%;
+    height: 90vh; /*vh: altura visivel*/
+    margin-left: 10%;
+    padding: 10px;
+    display: inline-table;
+}
+#corpo #topo{
+    background-color: green;
+    width: 100%;   /*100% da onde ele está contido, ouseja dentro de #corpo*/
+    height: 20%;
+    display: inline-table; /*alinhar: ficar sem espaço*/
+}
+#corpo #topo h1{
+    color: white;
+    border: dotted white 2px; /*borda , pontilhada , branca*/
+    width: 50%;
+}
+#corpo #menu {
+    width: 30%;
+    height: 80%;
+    background-color: blue;
+    display: inline-table;
+}
+#corpo #conteudo{
+    width: 70%;
+    height: 80%;
+    background-color: yellow;
+    display: inline-table;
+}
+#btnMenu{
+    display:none;
+}
+/*Media Queries - adaptar o css a um determinado tamanho do dispositivo*/
+@media screen and (max-width:420px) and (min-width: 0px){
+    body{
+        margin: 0;
+    }
+    #corpo {
+        background-color: red;
+        width: 100%;
+        height: 100vh; /*vh: altura visivel*/
+        margin-left: 0;
+        padding-top: 5px;
+        padding-bottom: 5 0 0 5;
+        display: inline-table;
+        overflow-x: scroll; /*se passar o tamanho ele cria um scroll*/
+    }
+    #corpo #menu {
+        display: none; /*oculta o item*/
+    }
+    #corpo #conteudo{
+        width: 100%;
+        height: 80%;
+        background-color: orange;
+        display: inline-table;
+    }
+    h1{
+        display: none;
+    }
+    #btnMenu{
+        display:block; /*irá fazer o item que estava NONE(oculto) aparecer*/
+    }
+}
+
+/*29/09*/
+/*classe usada para os erros*/
+.erro{
+    color: red;
+    border: dashed red 3px;
+}

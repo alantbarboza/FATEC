@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Primeira Página</title>
+        <meta name= "description" content="Essa é a primeira página para estudo de programação Web" />
+        <meta name="keywords" content="html5, fatec ipiranga, programação web" />
+        <link rel="stylesheet" href="estilo.css"/> <!--importando o arquivo css-->
+        <!--Bootstrap - framework do css-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+        <!---->
+        <!--JavaScript: fora do HTML-->
+        <script lang="javascript" src="javascript.js"></script>
+        <!---->
+    </head>
+    <body>
+
+        <h1>PW02</h1> <!--titulo 1-->
+        <h2>Fatec Ipiranga</h2> <!--titulo 2-->
+        <h3> Sou aluno da Fatec Ipiranga</h3> <!--titulo 3-->
+
+        Where does it come from?
+        Contrary to popular belief, Lorem Ipsum is not simply random text.
+        
+        <br/><br/> <!--quebra de linha -->
+        
+        It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
+        Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
+        consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.
+        Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC.
+        This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..",
+        comes from a line in section 1.10.32.
+        he standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+        
+        <br/><br/>
+        Fatec Ipiranga - Quinta Feira
+        <br/><br/>
+        
+        <p>paragrafo a esquerda0</p>
+        <p align="center">paragrafo ao centro</p> <!--alinha/centraliza a linha-->
+        <p align="right">paragrafo a direita</p> <!--alinha para a direita-->
+        
+        
+        <!--lista de topicos-->
+        <ul>
+            <li>Item1</li>
+            <li>Item2</li>
+            <li>Item3</li>
+        </ul>
+
+            <!--lista numerada-->
+        <ol>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ol>
+
+        <!--Tabela-->
+        <table border="1px" align="center" width="60%">
+            <tr>  <!--linha de tabela-->
+                <td>Azul</td> <!--detalhe de tabela-->
+                <td>Verde</td>
+            </tr>
+            <tr>
+                <td>Amarelo</td>
+                <td>Branco</td>
+            </tr>
+        </table>
+        
+        <!--tags de formatação-->
+        <b>Negrito</b><br/>
+        <i>Italico</i><br/>
+        <u>Sublinhado</u><br/>
+        <s>Riscado</s><br/>
+        <b><i><u>tudo junto</u></i></b>
+        
+        <!--fonte: cor ; tamanho ; tipo-->
+        <font color="red" size="12px" face="arial">
+            teste de fonte
+        </font></b>
+
+        <!--Links-->
+        <a href="http://professor.norton.net.br" target="new"> <!--target=new   para abrir o link em uma nova aba-->
+            Teste de link
+        </a></br>
+
+        <!--Tags de multimidia-->
+        <img src="imagem.jpg" width="30%" /> <!--nome do arquivo.formato -> caso esteja no mesmo arquivo
+                                                                         -> caso esteja em um site de terceiro coloque o link-->
+        <!--Tags de objetos: devem estar sempre dentro do FORM-->
+        <form class="janela"> <!--tag para criar um formulario-->
+            <!--input: cria um campo.
+                type: tipo do campo. Exemplo: campo do tipo texto "text"
+                placeholder: quando o campo estiver vazio, aparece a mensagem
+                required: deixa o campo obrigatorio
+                pattern: permite apenas entre 6 a 100 caracteres que sejam A até Z , maiusculas e minusculas. \s = irá aceitar espaços em branco
+            -->   
+            Nome:<input type="text" id="txtNome" placeholder="digite seu nome" size="10" required pattern="[A-z\s]{6,100}"/>
+            <br/>
+            Senha:<input type="password" id="senha" required pattern="[0-9]{6,100}" title="senha de 6 a 10 numeros"/>
+            <br/>
+            Idade:<input type="number" id="idade" min="1" max="100" required/>
+            <br/>
+            Altura:<input type="number" id="altura" min="1.00" max="2.50" step="0.01" required/>
+            <br/>
+            Email:<input type="email" id="email" required/>
+            <br/>
+            Data:<input type="date" id="data" min="24/08/2022" required/>
+            Tempo:<input type="time" id="hora" required/>
+            <br/>
+            Volume:<input type="range" id="volume" required/>
+            <br/>
+            Cor:<input type="color" id="volume" required/>
+            <br/>
+            <input type="checkbox" id="aceite" required/>Confirmo os dados acima informados
+            <br/>
+            Periodo</br> <!--botão de opção-->
+            <input type="radio" id="p1" name="periodo"/>Manhã
+            <input type="radio" id="p2" name="periodo"/>Tarde
+            <input type="radio" id="p3" name="periodo"/>Noite
+            <br/>
+            mensagem: <!--textarea: cria um campo maior de texto 
+                          rows: quantidade de linhas    cols: quantidade de colunas-->
+            <textarea id="msg" placeholder="digite uma mensagem" required rows="5" cols="40"></textarea>
+            unidade:
+            <select id="unidade">
+                <option>SCS</option>
+                <option>SBCP</option>
+                <option>SA</option>
+                <option selected>SP</option> <!--deixa essa opção já selecionada-->
+            </select><!--data-variavel: cria uma variavel para o javascript-->
+            <input type="text" id="endereco" data-variavel="123" data-variavel2="wefwef"/>
+            <button id="btn">Enviar</button>
+        </form>
+        <!--css em cascata-->
+        <div id="corpo">
+            <div id="topo">
+                <h1>Teste de Cascata</h1>
+                <button id="btnMenu">M</button>
+            </div>
+            <div id="menu"></div>
+            <div id="conteudo"></div>
+        </div>
+        <h1>teste</h1>
+
+        <!--Bootstrap - framework do css-->
+        <!--https://www.w3schools.com/bootstrap/-->
+        <div class="container-fluid">
+            <h1>Teste de bootstrap</h1>
+            teste de bootstrap teste de bootstrap 
+            teste de bootstrap <br/><br/>
+
+            <button class="btn btn-primary btn-lg btn-block">Teste de btn</button><br/>
+            <button class="btn btn-outline-primary">Teste</button>
+
+            
+            <button class="btn btn-primary">
+                <span class="spinner-border spinner-border-sm"></span>
+            Carregando..
+            </button>
+            
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary">Apple</button>
+                <button type="button" class="btn btn-primary">Samsung</button>
+                <button type="button" class="btn btn-primary">Sony</button>
+            </div>
+
+            <table class="table table-dark table-striped">
+                <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                </tr>
+                <tr>
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                </tr>
+                <tr class="table-danger">
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="alert alert-success">
+                Registro salvo com sucesso !!!
+            </div>
+
+            <div class="progress">
+                <div class="progress-bar" style="width:70%">70%</div>
+            </div>
+
+            <div class="card" style="width:400px">
+                <img class="card-img-top" src="img_avatar1.png" alt="Card image">
+                <div class="card-body">
+                <h4 class="card-title">John Doe</h4>
+                <p class="card-text">Some example text.</p>
+                <a href="#" class="btn btn-primary">See Profile</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button type="button" 
+                class="btn btn-primary dropdown-toggle"
+                data-bs-toggle="dropdown">
+                Menu
+                </button>
+                <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Item 1</a></li>
+                <li><a class="dropdown-item" href="#">Item 2</a></li>
+                <li><a class="dropdown-item" href="#">Item 3</a></li>
+                </ul>
+            </div>
+
+            <button type="button" 
+            class="btn btn-primary" 
+            data-bs-toggle="modal" data-bs-target="#myModal">
+            Open modal
+            </button>
+
+
+            <!-- The Modal -->
+            <div class="modal" id="myModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal Heading</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    Modal body..
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
+            <!--Grid System: permite dividir a tela, dependendo da tela do dispositivo-->
+            <div class="row">
+                <div class="hidden-xs col-sm-3 col-md-6">
+                <p>coluna1 coluna1coluna1coluna1coluna1coluna1
+                    coluna1coluna1coluna1coluna1coluna1coluna1coluna1
+                    coluna1coluna1coluna1coluna1coluna1coluna1coluna1
+                    coluna1coluna1
+                    coluna1coluna1coluna1coluna1coluna1coluna1coluna1
+                    coluna1coluna1coluna1coluna1coluna1coluna1coluna1
+                    coluna1coluna1coluna1coluna1coluna1</p>
+                </div>
+                <div class="col-xs-12 col-sm-9 col-md-6">
+                <p> colunacoluna2coluna2coluna2coluna2
+                    coluna2coluna2coluna2coluna2coluna2coluna2
+                    coluna2coluna2coluna2coluna2coluna2coluna2coluna2
+                    coluna2coluna2coluna2coluna2coluna2coluna2coluna2coluna22</p>
+                </div>
+            </div>
+            <!---->
+        </div>
+        <!---->
+        <!--aula JavaScript-->
+        <form>
+            n1:<input type="text" id="n1"/><br/>
+            n2:<input type="text" id="n2"/><br/>
+            <button type="button" onclick="media();">Media</button><br/> <!--ON é um evento que irá chamar uma função do JavaScript-->
+            Resultado:
+            <input type="text" id="res" readonly/> <!--readonly: não deixa a pessoa clicar no botão-->
+        </form>
+
+        <h1>Javascript</h1>
+        <form id="frm1" action="gravar.php"> <!--action: página que irá receber os dados do formulário-->
+            nome:<input type="text" id="nome2"/><br/>
+            senha:<input type="password" id="senha1"/><br/>
+            confirma:<input type="password" id="senha2"/><br/>
+            Email:<input type="email" id="email2" /><br/>
+            <input type="checkbox" id="confirma"/> confirma os dados acima<br/>
+            <button type="button" onclick="validar();">Enviar</button>
+        </form>
+        <!---->
+        <!--aula JavaScript 2-->
+        <h1>JS Continuação</h1>
+        <form id="frm1">
+            nome:<input type="text" id="nome" /><br/>
+            senha:<input type="password" id="senha" /><br/>
+            telefone:<input type="text" id="telefone" /><br/>
+            mensagem:<textarea id="msg"></textarea><br/>
+            <div id="erros" class="erro"></div>
+            <button type="button" onclick="validar();">Enviar</button>        
+        </form>
+    </body>
+</html>
+<!--JavaScript: dentro do HTML
+    https://www.w3schools.com/tags/ref_eventattributes.asp-->
+<script lang="javascript">
+    function media(){
+        //parseFloat: converte para FLOAT
+        var a = parseFloat(n1.value); //valor digitado na caixa com ID n1
+        var b = parseFloat(n2.value);
+        var nome2 = "maria";
+        var c = (a+b)/2;
+        //alert("Ola" + nome + " a media= "+ c);
+        res.value = c;
+    }
+
+    function validar(){
+        if(nome2.value.length<3){
+            alert("Informe o nome corretamente !!");
+            nome.focus(); //posicionando o cursor no campo
+            return false; //interrompe a execução do script
+        }
+        if(senha1.value.length<6 || !isNaN(senha1.value)){ //se for menor que 6 OU for diferente de NAN: Not a Number
+            alert("Informe uma senha de ao menos 6 caracteres!");
+            senha1.value="";
+            senha1.focus();
+            return false;
+        }
+        if(senha1.value != senha2.value){
+            alert("Confirmação e senha não são iguais!");
+            senha2.value="";
+            senha2.focus();
+            return false; 
+        }
+        if(email2.value.length<6 || email2.value.indexOf("@")<1){ //indexOf: procura se tem um @
+            alert("Informe um email valido!");
+            email.focus;
+            return false;
+        }
+        if(confirma.checked==false){ //se o botão não for marcado
+            alert("Você precisa confirmar !!!");
+            return false;
+        }
+        alert("tudo certo !!!");
+        frm1.submit(); //submit: pegar os dados do formulário e enviar para o backend 
+    }
+</script>
