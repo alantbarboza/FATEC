@@ -1,0 +1,266 @@
+/* base de dados - modelo */
+use teste;
+
+drop table bonusipi
+go
+drop table participaipi
+go
+drop table estrangeiroipi
+go
+drop table nacionalipi
+go
+drop table possuiipi
+go
+drop table pedidoipi
+go
+drop table relacionaipi
+go
+drop table clienteipi
+go
+drop table escreveipi
+go
+drop table livroipi
+go
+drop table categoriaipi
+go
+drop table acaosocialipi
+go
+drop table autoripi
+go
+
+create table categoriaipi
+(
+  codigo_cat tinyint not null,
+  descricao_cat varchar(30) not null,
+  constraint catipi1 primary key (codigo_cat )
+);
+insert into categoriaipi values (1,'Romance');
+insert into categoriaipi values (2,'Aventura');
+insert into categoriaipi values (3,'Ficção');
+select * from categoriaipi;
+
+create table autoripi
+(      
+ codigo_aut int not null, 
+ nome_aut varchar(30) not null, 
+ fone_aut decimal (9,0) null,
+ constraint autipi1 primary key (codigo_aut  )
+);
+
+/**incluir data de nascimento em autor**/
+alter table autoripi add 
+            data_nascimento datetime null;
+
+insert into autoripi values (10,'Jose Silva', 999999999, '1950-01-03');
+insert into autoripi values (20,'Maria Rita', 888888888, '1960-02-07');
+insert into autoripi values (30,'Gilberto Gil', 777777777, '1954-11-08');
+select * from autoripi;
+
+
+
+create table acaosocialipi
+(      
+identificacao_acs int not null, 
+descricao_acs varchar(30) not null, 
+data_acs datetime null,
+constraint acsipi1 primary key (identificacao_acs)
+);
+insert into acaosocialipi values (100,'ONG Juventude', '2017-10-04');
+insert into acaosocialipi values (200,'Fome Zero', '2018-04-05');
+insert into acaosocialipi values (300,'Casa Idoso', '2015-07-06');
+select * from acaosocialipi ;
+
+create table livroipi
+(      
+codigo_liv int not null, 
+nome_liv varchar(30) not null, 
+valor_liv decimal (5,2) null,
+codigo_cat tinyint not null,
+constraint livipi1 primary key (codigo_liv),
+constraint livipi2 foreign key (codigo_cat)
+           references categoriaipi (codigo_cat)
+);
+
+insert into livroipi values (1000,'Anda com Fe', 40.50,1 );
+insert into livroipi values (2000,'Maria Maria', 2.30,3 );
+insert into livroipi values (3000,'Show das poderosas', 20.30,2 );
+insert into livroipi values (1001,'Sereia na praia', 100.00,1 );
+insert into livroipi values (2001,'Irene ri', 200.30,2 );
+insert into livroipi values (3001,'Terremoto maldito', 25.30,3 );
+select * from livroipi ;
+
+create table escreveipi
+(      
+codigo_liv int not null, 
+codigo_aut int not null, 
+constraint esipic1 foreign key (codigo_liv)
+           references livroipi (codigo_liv), 
+constraint esipic2 foreign key (codigo_aut )
+           references autoripi (codigo_aut),
+constraint esipic3 primary key (codigo_liv,codigo_aut)
+);
+
+insert into escreveipi values (1000,10 );
+insert into escreveipi values (2000,20);
+insert into escreveipi values (3000,30 );
+insert into escreveipi values (1001, 10);
+insert into escreveipi values (2001, 20);
+insert into escreveipi values (3001, 30);
+select * from escreveipi;
+
+
+create table clienteipi
+(      
+cpf_cli decimal(11,0) not null, 
+nome_cli varchar(30) not null, 
+email_cli varchar(30) null,
+constraint cliipi1 primary key (cpf_cli)
+);
+
+/**** alterar tabela***/
+
+/*1) incluir sexo e data de nascimento em cliente*/
+
+alter table clienteipi add sexo char(1) null,
+            data_nascimento datetime null
+
+
+insert into clienteipi values (11111111111,'Rosa Goncalves', 'rosa.G@gmail.com','F','2000-01-01');
+insert into clienteipi values (22222222222,'Bruno Dias', 'Bruno.D@hotmail.com', 'M', '1973-02-02');
+insert into clienteipi values (33333333333,'Gabriel Sousa', 'Gabriel.S@gmail.com', 'M', '1973-03-02');
+
+select * from clienteipi;
+
+create table relacionaipi
+(      
+cpf_cli decimal(11,0) not null, 
+cpf_cli1 decimal(11,0) not null,
+forma_rel varchar(30) not null,
+constraint relipi1 foreign key (cpf_cli)
+           references clienteipi (cpf_cli),
+constraint relipi2 foreign key (cpf_cli1 )
+           references clienteipi (cpf_cli),
+constraint relipi3 primary key (cpf_cli, cpf_cli1)
+);
+
+insert into relacionaipi values (11111111111,22222222222, 'filho');
+insert into relacionaipi values (22222222222,33333333333, 'amigo');
+insert into relacionaipi values (33333333333,11111111111, 'amigo');
+select * from relacionaipi;
+
+
+
+create table pedidoipi
+(      
+codigo_ped int not null, 
+data_ped datetime not null, 
+cpf_cli decimal(11,0) not null, 
+constraint pedipi1 primary key (codigo_ped),
+constraint pedipi2 foreign key (cpf_cli)
+           references clienteipi (cpf_cli)
+);
+
+insert into pedidoipi values (10000,'2018-01-01', 11111111111);
+insert into pedidoipi values (20000,'2017-09-04', 11111111111);
+insert into pedidoipi values (30000,'2019-07-01',33333333333);
+
+select * from pedidoipi;
+
+create table possuiipi
+(      
+codigo_ped int not null, 
+codigo_liv int not null,  
+quantidade_pos int not null, 
+constraint posipi1 foreign key (codigo_ped)
+           references pedidoipi (codigo_ped),
+constraint posipi2 foreign key (codigo_liv)
+           references livroipi (codigo_liv),
+constraint posipi3 primary key (codigo_ped,codigo_liv )
+);
+
+insert into possuiipi values (10000,1000, 1);
+insert into possuiipi values (20000,2000, 1);
+insert into possuiipi values (30000,3000,1);
+
+select * from possuiipi 
+
+
+create table nacionalipi
+(      
+ codigo_aut int not null, 
+ numpublica_nac int not null, 
+ constraint naipic1 primary key (codigo_aut),
+ constraint naipic2 foreign key (codigo_aut)
+           references autoripi (codigo_aut),
+);
+
+insert into nacionalipi values (10,1);
+insert into nacionalipi values (20,2);
+select * from nacionalipi
+
+
+create table estrangeiroipi
+(      
+ codigo_aut int not null, 
+ especializacao_est varchar(30) not null, 
+ constraint estipi1 primary key (codigo_aut),
+ constraint estipi2 foreign key (codigo_aut)
+           references autoripi (codigo_aut),
+);
+insert into estrangeiroipi values (30,'romancista');
+
+select * from estrangeiroipi;
+
+
+/*default em data da participação*/
+
+create table participaipi
+(      
+codigo_aut int not null, 
+identificacao_acs int not null,  
+data_par datetime not null default '2019-1-1', 
+constraint paripi1 foreign key (codigo_aut)
+           references autoripi (codigo_aut),
+constraint paripi2 foreign key (identificacao_acs)
+           references acaosocialipi (identificacao_acs),
+constraint paripi3 primary key (codigo_aut,identificacao_acs )
+);
+
+insert into participaipi values (10,100, '2018-1-1');
+insert into participaipi values (20,200, '2017-1-1');
+select * from participaipi 
+
+
+/*** regra de megocio: o premio não pode 
+ultrapassar do valor 200,00 ***/
+
+create table bonusipi
+(      
+ codigo_bon int not null, 
+ premio_bon decimal(5,2) not null, 
+ codigo_aut int not null, 
+ identificacao_acs int not null, 
+ constraint bonipi1 primary key (codigo_bon),
+ constraint bonipi2 foreign key (codigo_aut,identificacao_acs ) 
+           references participaipi (codigo_aut,identificacao_acs ),
+constraint bonipi3 check (premio_bon < 200.00)
+ );
+
+insert into bonusipi values (100000, 50.00,10,100);
+insert into bonusipi values (200000,30.00, 20,200);
+select * from bonusipi ;
+
+/**** alterar tabela***/
+
+/**1) alterar nome da categoria para ser unica**/
+alter table categoriaipi
+add constraint catipi2 unique (descricao_cat)
+
+/**se quiser eliminar ....
+alter table categoria
+drop constraint catipi2**/
+
+/**2) incluir regra de negócio em numero de publicações < 4
+**/
+alter table nacionalipi
+add constraint naipic5 check (numpublica_nac < 4)
